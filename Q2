@@ -1,0 +1,12 @@
+cacheSolve <- function(matrix_obj) {
+  inverse <- matrix_obj$getInverse()
+  if (!is.null(inverse)) {
+    message("Retrieving cached inverse.")
+    return(inverse)
+  }
+  
+  matrix <- matrix_obj$getMatrix()
+  inverse <- solve(matrix)
+  matrix_obj$setInverse(inverse)
+  inverse
+}
